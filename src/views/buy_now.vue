@@ -14,14 +14,12 @@ const abouts = reactive([
 
 <template>
   <div class="app-scroll flex flex-col gap-8 py-14 px-4 sm:px-8 md:px-16">
-    <!-- Title -->
     <div class="flex justify-center">
       <p class="text-2xl sm:text-3xl font-semibold text-center">
         <span class="text-[#FD9222]">BUY</span> NOW
       </p>
     </div>
 
-    <!-- Products -->
     <div class="flex flex-col sm:flex-row justify-center flex-wrap gap-6 sm:gap-8">
       <div
         v-for="(i, index) in abouts"
@@ -36,10 +34,8 @@ const abouts = reactive([
       </div>
     </div>
 
-    <!-- Form -->
     <div class="flex justify-center items-center">
       <div class="w-full max-w-2xl space-y-6">
-        <!-- Name and Surname -->
         <div class="space-y-2 sm:space-y-0 sm:flex sm:gap-4">
           <input
             type="text"
@@ -53,7 +49,6 @@ const abouts = reactive([
           />
         </div>
 
-        <!-- Email -->
         <div class="space-y-2">
           <p>Email:</p>
           <input
@@ -63,7 +58,6 @@ const abouts = reactive([
           />
         </div>
 
-        <!-- Phone -->
         <div class="space-y-2">
           <p>Phone number:</p>
           <input
@@ -73,7 +67,6 @@ const abouts = reactive([
           />
         </div>
 
-        <!-- Card -->
         <div class="space-y-2">
           <p>Card number:</p>
           <input
@@ -83,7 +76,6 @@ const abouts = reactive([
           />
         </div>
 
-        <!-- Comment -->
         <div class="space-y-2">
           <p>Comment:</p>
           <textarea
@@ -92,7 +84,6 @@ const abouts = reactive([
           ></textarea>
         </div>
 
-        <!-- Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center mt-4">
           <button
             class="bg-[#FD9222] rounded-3xl text-white py-3 px-10 cursor-pointer w-full sm:w-auto"

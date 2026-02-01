@@ -33,7 +33,7 @@ let comments = [
     </p>
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full animate-pulse"
     >
       <div
         v-for="(comment, index) in comments"

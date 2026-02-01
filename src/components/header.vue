@@ -68,7 +68,6 @@ const toggleMenu = () => {
       </transition>
     </nav>
 
-    <!-- Header -->
     <header class="py-8 px-4">
       <div class="relative flex justify-center">
         <img
