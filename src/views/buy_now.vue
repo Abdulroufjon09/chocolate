@@ -13,100 +13,104 @@ const abouts = reactive([
 </script>
 
 <template>
-  <div class="app-scroll flex flex-col gap-8 py-14">
+  <div class="app-scroll flex flex-col gap-8 py-14 px-4 sm:px-8 md:px-16">
+    <!-- Title -->
     <div class="flex justify-center">
-      <p class="text-2xl font-semibold">
+      <p class="text-2xl sm:text-3xl font-semibold text-center">
         <span class="text-[#FD9222]">BUY</span> NOW
       </p>
     </div>
-    <div class="flex justify-center gap-8">
+
+    <!-- Products -->
+    <div class="flex flex-col sm:flex-row justify-center flex-wrap gap-6 sm:gap-8">
       <div
         v-for="(i, index) in abouts"
         :key="index"
-        class="border rounded-3xl border-[#1111111A] flex flex-col items-center justify-between p-6 gap-2"
+        class="border rounded-3xl border-[#1111111A] flex flex-col items-center justify-between p-6 gap-4 sm:w-40 md:w-48"
       >
-        <img :src="i.img" alt="" class="w-24 object-contain" />
+        <img :src="i.img" alt="" class="w-24 h-24 object-contain" />
 
-        <button class="border border-gray-300 rounded-full px-10 py-1">
+        <button class="border border-gray-300 rounded-full px-8 py-1 text-sm sm:text-base">
           {{ i.how_much }}
         </button>
       </div>
     </div>
+
+    <!-- Form -->
     <div class="flex justify-center items-center">
-      <div class="space-y-8">
-        <p>Personal information:</p>
-        <span class="flex justify-center items-center gap-14">
+      <div class="w-full max-w-2xl space-y-6">
+        <!-- Name and Surname -->
+        <div class="space-y-2 sm:space-y-0 sm:flex sm:gap-4">
           <input
             type="text"
-            class="border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
+            class="w-full sm:w-1/2 border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
             placeholder="Name"
           />
           <input
             type="text"
-            class="border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
-            placeholder="Sourname"
+            class="w-full sm:w-1/2 border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
+            placeholder="Surname"
           />
-        </span>
-        <div class="space-y-8">
+        </div>
+
+        <!-- Email -->
+        <div class="space-y-2">
           <p>Email:</p>
-          <span>
-            <input
-              type="email"
-              class="w-full border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
-              placeholder="Enter your email"
-            />
-          </span>
+          <input
+            type="email"
+            class="w-full border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
+            placeholder="Enter your email"
+          />
         </div>
-        <div class="space-y-8">
+
+        <!-- Phone -->
+        <div class="space-y-2">
           <p>Phone number:</p>
-          <span>
-            <input
-              type="tel"
-              class="w-full border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
-              placeholder="Phone number"
-            />
-          </span>
+          <input
+            type="tel"
+            class="w-full border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
+            placeholder="Phone number"
+          />
         </div>
 
-        <div class="space-y-8">
+        <!-- Card -->
+        <div class="space-y-2">
           <p>Card number:</p>
-          <span>
-            <input
-              type="number"
-              class="w-full border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
-              placeholder="Card number"
-            />
-          </span>
+          <input
+            type="number"
+            class="w-full border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
+            placeholder="Card number"
+          />
         </div>
 
-        <div class="space-y-8">
+        <!-- Comment -->
+        <div class="space-y-2">
           <p>Comment:</p>
-          <span>
-            <textarea
-              class="w-full border border-[#1111111A] py-2 px-6 rounded-3xl outline-none"
-            ></textarea>
-          </span>
-          <span class="flex gap-8">
+          <textarea
+            class="w-full border border-[#1111111A] py-2 px-6 rounded-3xl outline-none resize-none"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-4">
+          <button
+            class="bg-[#FD9222] rounded-3xl text-white py-3 px-10 cursor-pointer w-full sm:w-auto"
+          >
+            Submit
+          </button>
+          <RouterLink to="/">
             <button
-              class="bg-[#FD9222] rounded-3xl text-white py-3 px-10 mt-12 cursor-pointer"
+              class="bg-[#FD9222] rounded-3xl text-white py-3 px-10 cursor-pointer w-full sm:w-auto"
             >
-              Submit
+              Home
             </button>
-            <RouterLink to="/">
-              <button
-                class="bg-[#FD9222] rounded-3xl text-white py-3 px-10 mt-12 cursor-pointer"
-              >
-                Home
-              </button>
-            </RouterLink>
-          </span>
+          </RouterLink>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-
 
 <style scoped>
 .app-scroll {

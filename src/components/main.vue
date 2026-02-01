@@ -26,21 +26,17 @@ let abouts = [
 </script>
 
 <template>
-  <div class="bg-[#1E1823] text-white" id="main">
-    <div class="flex justify-between items-start gap-8 p-14">
-      <div
-        class="w-full md:w-1/3 space-y-5"
-        v-for="(about, index) in abouts"
-        :key="index"
-      >
-        <button class="border rounded-full p-4">
+  <section class="bg-[#1E1823] text-white px-4 sm:px-10 py-12" id="main">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div v-for="(about, index) in abouts" :key="index" class="flex flex-col items-center text-center gap-4">
+        <button class="border rounded-full p-4 flex items-center justify-center">
           <img :src="about.icon" alt="" class="w-8 h-8" />
         </button>
-        <p class="text-xl font-semibold mt-2">{{ about.title }}</p>
-        <p class="mt-1">{{ about.description }}</p>
+        <p class="text-lg sm:text-xl font-semibold mt-2">{{ about.title }}</p>
+        <p class="text-sm sm:text-base mt-1">{{ about.description }}</p>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>

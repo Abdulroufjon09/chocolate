@@ -11,26 +11,27 @@ let abouts = [
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-12" id="made_section">
-    <div>
-      <p class="text-2xl font-semibold">
-        HOW IT’S <span class="text-orange-500">MADE?</span>
-      </p>
-    </div>
-    <div class="flex flex-col md:flex-row justify-between items-center gap-8 px-14">
-      <div class="md:w-1/2">
-        <img :src="made" alt="" class="rounded-3xl w-full shadow-2xl shadow-black" />
+  <div class="flex flex-col items-center gap-12 px-4 sm:px-10" id="made_section">
+    <p class="text-xl sm:text-2xl lg:text-3xl font-semibold text-center">
+      HOW IT’S <span class="text-orange-500">MADE?</span>
+    </p>
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-6xl w-full">
+      <div class="md:w-1/2 w-full">
+        <img
+          :src="made"
+          alt="How it's made"
+          class="rounded-3xl w-full shadow-2xl shadow-black object-cover"
+        />
       </div>
-      <div class="md:w-1/2 flex flex-col gap-4">
-        <p class="text-lg">
+
+      <div class="md:w-1/2 flex flex-col gap-4 w-full">
+        <p class="text-base sm:text-lg">
           Try our chocolates today and discover the perfect balance of flavor
         </p>
-        <ul class="flex flex-col gap-2">
-          <li
-            v-for="(about, index) in abouts"
-            :key="index"
-            class="text-gray-700 list-disc"
-          >
+
+        <ul class="flex flex-col gap-2 list-disc list-inside text-gray-700 text-sm sm:text-base">
+          <li v-for="(about, index) in abouts" :key="index">
             {{ about }}
           </li>
         </ul>
