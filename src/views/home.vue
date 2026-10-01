@@ -29,6 +29,7 @@ import Top_products from "../components/top_products.vue";
 .app-scroll {
   height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden;
 
   scrollbar-width: none;
 }

@@ -13,91 +13,64 @@ const abouts = reactive([
 </script>
 
 <template>
-  <div class="app-scroll flex flex-col gap-8 py-14 px-4 sm:px-8 md:px-16">
-    <div class="flex justify-center">
-      <p class="text-2xl sm:text-3xl font-semibold text-center">
-        <span class="text-[#FD9222]">BUY</span> NOW
-      </p>
-    </div>
+  <div
+    class="app-scroll flex flex-col justify-center gap-5 lg:gap-7 px-4 sm:px-8 md:px-12 py-6 lg:py-8"
+  >
+    <p v-reveal class="section-title">
+      <span class="accent">BUY</span> NOW
+    </p>
 
-    <div class="flex flex-col sm:flex-row justify-center flex-wrap gap-6 sm:gap-8">
-      <div
-        v-for="(i, index) in abouts"
-        :key="index"
-        class="border rounded-3xl border-[#1111111A] flex flex-col items-center justify-between p-6 gap-4 sm:w-40 md:w-48"
-      >
-        <img :src="i.img" alt="" class="w-24 h-24 object-contain" />
-
-        <button class="border border-gray-300 rounded-full px-8 py-1 text-sm sm:text-base">
-          {{ i.how_much }}
-        </button>
-      </div>
-    </div>
-
-    <div class="flex justify-center items-center">
-      <div class="w-full max-w-2xl space-y-6">
-        <div class="space-y-2 sm:space-y-0 sm:flex sm:gap-4">
-          <input
-            type="text"
-            class="w-full sm:w-1/2 border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
-            placeholder="Name"
+    <div
+      class="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-5 lg:gap-7 max-w-6xl w-full mx-auto"
+    >
+      <!-- mahsulot tanlash -->
+      <div class="grid grid-cols-3 gap-3 lg:gap-4 content-center">
+        <div
+          v-for="(i, index) in abouts"
+          :key="index"
+          v-reveal="index * 130"
+          class="card group flex flex-col items-center justify-center gap-3 p-4"
+        >
+          <img
+            :src="i.img"
+            alt=""
+            class="w-full h-16 sm:h-20 object-contain transition-transform duration-[900ms] group-hover:scale-110"
           />
-          <input
-            type="text"
-            class="w-full sm:w-1/2 border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
-            placeholder="Surname"
-          />
-        </div>
 
-        <div class="space-y-2">
-          <p>Email:</p>
-          <input
-            type="email"
-            class="w-full border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
-            placeholder="Enter your email"
-          />
-        </div>
-
-        <div class="space-y-2">
-          <p>Phone number:</p>
-          <input
-            type="tel"
-            class="w-full border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
-            placeholder="Phone number"
-          />
-        </div>
-
-        <div class="space-y-2">
-          <p>Card number:</p>
-          <input
-            type="number"
-            class="w-full border border-[#1111111A] rounded-3xl py-2 px-6 outline-none"
-            placeholder="Card number"
-          />
-        </div>
-
-        <div class="space-y-2">
-          <p>Comment:</p>
-          <textarea
-            class="w-full border border-[#1111111A] py-2 px-6 rounded-3xl outline-none resize-none"
-            rows="4"
-          ></textarea>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-4">
           <button
-            class="bg-[#FD9222] rounded-3xl text-white py-3 px-10 cursor-pointer w-full sm:w-auto"
+            class="border border-[#111111]/10 rounded-full px-4 py-1 text-xs sm:text-sm font-semibold cursor-pointer transition-all duration-700 group-hover:bg-[#FD9222] group-hover:border-[#FD9222] group-hover:text-white"
           >
-            Submit
+            {{ i.how_much }}
           </button>
-          <RouterLink to="/">
-            <button
-              class="bg-[#FD9222] rounded-3xl text-white py-3 px-10 cursor-pointer w-full sm:w-auto"
-            >
-              Home
-            </button>
+        </div>
+      </div>
+
+      <!-- buyurtma formasi (glass) -->
+      <div class="glass rounded-3xl p-5 sm:p-6 flex flex-col justify-center">
+
+      <div class="grid sm:grid-cols-2 gap-3">
+        <input type="text" class="input" placeholder="Name" />
+        <input type="text" class="input" placeholder="Surname" />
+        <input type="email" class="input" placeholder="Enter your email" />
+        <input type="tel" class="input" placeholder="Phone number" />
+        <input
+          type="number"
+          class="input sm:col-span-2"
+          placeholder="Card number"
+        />
+        <textarea
+          class="input sm:col-span-2 py-2.5"
+          rows="2"
+          placeholder="Comment"
+        ></textarea>
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:col-span-2 mt-1">
+          <button class="btn btn-primary w-full sm:w-auto">Submit</button>
+          <RouterLink to="/" class="btn btn-outline-brand w-full sm:w-auto">
+            Home
           </RouterLink>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -107,11 +80,18 @@ const abouts = reactive([
 .app-scroll {
   height: 100vh;
   overflow-y: auto;
-
+  overflow-x: hidden;
   scrollbar-width: none;
 }
 
 .app-scroll::-webkit-scrollbar {
   display: none;
+}
+
+/* katta ekranda — bir ekran, scrollsiz */
+@media (min-width: 1024px) and (min-height: 600px) {
+  .app-scroll {
+    overflow: hidden;
+  }
 }
 </style>

@@ -4,9 +4,19 @@ import { X } from "lucide-vue-next";
 </script>
 
 <template>
-  <div class="flex justify-center items-center min-h-screen px-4">
+  <div
+    class="relative flex justify-center items-center min-h-screen px-4 py-10 overflow-hidden"
+  >
+    <!-- dekorativ blur blob'lar -->
     <div
-      class="flex flex-col md:flex-row
+      class="pointer-events-none absolute -top-24 -left-20 w-72 h-72 rounded-full bg-[#FD9222]/25 blur-3xl"
+    ></div>
+    <div
+      class="pointer-events-none absolute -bottom-28 -right-16 w-80 h-80 rounded-full bg-[#1E1823]/15 blur-3xl"
+    ></div>
+
+    <div
+      class="relative scale-in flex flex-col md:flex-row
              w-full max-w-4xl
              rounded-3xl shadow-2xl overflow-hidden"
     >
@@ -29,21 +39,20 @@ import { X } from "lucide-vue-next";
             <span class="text-[#FD9222]">chocolate first!</span>
           </p>
           <RouterLink to="/">
-            <X class="cursor-pointer shrink-0" />
+            <X
+              class="cursor-pointer shrink-0 transition-transform duration-700 hover:rotate-90 hover:text-[#FD9222]"
+            />
           </RouterLink>
         </div>
 
         <div class="flex flex-col sm:flex-row gap-3">
           <input
             type="email"
-            class="w-full border rounded-3xl px-6 py-2
-                   border-[#1111110D] outline-none"
+            class="input"
             placeholder="Enter your email"
           />
           <button
-            class="w-full sm:w-auto
-                   border rounded-3xl px-6 py-2
-                   bg-[#FD9222] text-white"
+            class="btn btn-primary w-full sm:w-auto"
           >
             Subscribe
           </button>
